@@ -1,5 +1,5 @@
 const User = require("../models/User");
-const bcrypt = require("bcrypt");
+const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const dotenv = require("dotenv").config();
 const OTP = require("../models/OTP");
@@ -66,7 +66,7 @@ exports.createUser = async (req, res) => {
 
     console.log("i got the OTP")
 
-    const hash = await bcrypt.hash(password, 10);
+    const hash = await bcryptjs.hash(password, 10);
     console.log("password is hashed")
     const response = await User.create({
       name,
@@ -112,7 +112,7 @@ exports.loginUser = async (req, res) => {
       });
     }
 
-    if (await bcrypt.compare(password, isUser.password)) {
+    if (await bcryptjs.compare(password, isUser.password)) {
       console.log("PASSWORD MATCHED");
       const data = {
         user: {
