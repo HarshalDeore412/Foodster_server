@@ -3,7 +3,7 @@ const Data = require("../models/Data");
 
 exports.getAllData = async (req, res) => {
   try {
-    console.log("requested");
+    console.log("requested...");
 
     const response = await Data.find({});
 
