@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(
 	cors({
-		origin:"https://mernapp-1whq.vecel.app",
+		origin:"https://foodster-frontend.vercel.app/",
 		methods:["POST","GET"],
 		credentials:true,
 	})
