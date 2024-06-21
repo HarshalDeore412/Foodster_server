@@ -13,11 +13,7 @@ DBConnect();
 
 app.use(express.json());
 
-app.use(
-	cors({
-		origin:"https://foodster-frontend.vercel.app/",
-	})
-)
+app.use(cors())
 
 app.use('/api/user' , userRoutes);
 app.use('/api/data' , DataRoutes);
